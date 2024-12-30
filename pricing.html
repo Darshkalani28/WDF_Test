@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Table Toggle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            color: #000; 
+        }
+
+        h1 {
+            text-align: center;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+
+        .pricing-container {
+            text-align: center;
+            max-width: 800px;
+            margin: 20px;
+            background-color: #fff; 
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .toggle-container {
+            margin-bottom: 10px;
+        }
+
+        #price-toggle {
+            cursor: pointer;
+            width: 50px;
+            height: 25px;
+            border-radius: 25px;
+            position: relative;
+            appearance: none;
+            background-color: #ccc;
+            transition: background-color 0.3s ease;
+        }
+
+        #price-toggle:checked {
+            background-color: #3498db;
+        }
+
+        #price-toggle:checked::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 26px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: white; 
+            transition: left 0.3s ease;
+        }
+
+        .pricing-plans {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .plan {
+            background-color: white; 
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            margin: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .plan.highlighted {
+            border: 2px solid #3498db;
+            transform: scale(1.05);
+        }
+
+        .plan h3 {
+            margin: 0;
+            font-size: 24px;
+            color: #333; 
+        }
+
+        .price {
+            font-size: 32px;
+            color: #3498db;
+        }
+
+        .price span {
+            font-size: 18px;
+            color: #777; 
+        }
+
+        .plan ul {
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .plan li {
+            margin: 10px 0;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9; 
+        }
+
+        @media (max-width: 768px) {
+            .pricing-plans {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .plan {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="pricing-container">
+        <h1>Pricing Plans</h1>
+        <div class="toggle-container">
+            <label for="price-toggle">Monthly / Yearly</label><br>
+            <input type="checkbox" id="price-toggle" class="price-toggle">
+        </div>
+        
+        <div class="pricing-plans">
+            <div class="plan" id="plan1">
+                <h3>Basic</h3>
+                <p class="price" id="price1">$10 <span>/month</span></p>
+                <ul>
+                    <li>1 Project</li>
+                    <li>5GB Storage</li>
+                    <li>Basic Support</li>
+                </ul>
+                <button>Select Plan</button>
+            </div>
+
+            <div class="plan highlighted" id="plan2">
+                <h3>Standard</h3>
+                <p class="price" id="price2">$20 <span>/month</span></p>
+                <ul>
+                    <li>5 Projects</li>
+                    <li>50GB Storage</li>
+                    <li>Priority Support</li>
+                </ul>
+                <button>Select Plan</button>
+            </div>
+
+            <div class="plan" id="plan3">
+                <h3>Premium</h3>
+                <p class="price" id="price3">$40 <span>/month</span></p>
+                <ul>
+                    <li>Unlimited Projects</li>
+                    <li>500GB Storage</li>
+                    <li>24/7 Support</li>
+                </ul>
+                <button>Select Plan</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
