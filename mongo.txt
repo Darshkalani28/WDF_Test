@@ -1,0 +1,33 @@
+1. db.Surprise_test.find({ status: "Available" });
+
+2. db.members.find({ "borrowHistory.overdue" : { "$gt": 0 }})
+
+3. db.Surprise_test.find({ genre: "Technology" });
+
+4. db.Surprise_test.find({ "copies.total": { $gt: 3 } });
+
+5. db.Surprise_test.find({ "location.floor": 2 });
+
+6. db.members.find({ "status" : "Active" })
+
+7. db.Surprise_test.find({ "location.section": "Tech" });
+
+8. db.Surprise_test.find({ genre: { $all: ["Technology", "Mathematics"] } });
+
+9. db.members.find({ "currentBorrowings": { "$size": { "$gt": 1 } } })
+
+10. db.Surprise_test.find({ "reviews.rating": { $gt: 4.5 } });
+
+11. db.Surprise_test.updateOne({ bookId: "BK101" },{ $push: {reviews: { rating: 4.7, review: "Informative and well-structured content"} } });
+
+12. db.members.updateOne(  { "memberId": "MEM102" },  { "$set": { "notifications": false } })
+
+13. db.Surprise_test.updateOne({ bookId: "BK105" },{$set: {status: "Maintenance"} });
+
+14. db.members.updateOne( { "memberId": "MEM104" }, { "$set": { "status": "Expired",  "validUntil": "2024-12-30" }  })
+
+15. db.members.deleteMany({"status": "Expired"})  
+
+16. db.Surprise_test.deleteMany({ status: "Maintenance" });
+
+17. db.members.updateOne({ "memberId": "MEM102" },{ "$pull" : { "currentBorrowings" : "BK102" , "borrowHistory" : { "total": 25, "returned": 23, "overdue": 1 } } })
